@@ -1,0 +1,24 @@
+digraph chains {
+  rankdir=LR;
+  node [shape=box; fontname=Helvetica]
+  B0 [label="3000.1"]
+
+  B1 [label="3001.1"]
+  B2 [label="3001.2"]
+
+  B3 [label="3002.1"]
+  B4 [label="3002.2"]
+
+  B5 [label="3003.1"]
+  B6 [label="3003.2"]
+
+  B7 [label="3004.1"]
+  B8 [label="3004.2"]
+
+  B9 [label="3005.1"]
+
+  B0 -> {B1 B2}
+  B1 -> {B3 B4}
+  B3 -> B5 -> B7 -> B9
+  B4 -> B6 -> B8
+}

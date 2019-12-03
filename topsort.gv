@@ -1,0 +1,31 @@
+digraph chains {
+  node [shape=box; fontname=Helvetica]
+  {
+    rank = same;
+
+    B0 [label="3000.1"; color=Green]
+
+    B1 [label="3001.1"; color=Green]
+    B2 [label="3001.2"; color=Red]
+
+    B3 [label="3002.1"; color=Green]
+    B4 [label="3002.2"; color=Orange]
+
+    B5 [label="3003.1"; color=Green]
+    B6 [label="3003.2"; color=Orange]
+
+    B7 [label="3004.1"; color=Green]
+    B8 [label="3004.2"; color=Orange]
+
+    B9 [label="3005.1"; color=Green]
+
+    B0 -> B1 [weight=100; color=Green]
+    B0 -> B2 [weight=0; color=Red]
+    B1 -> B3 [weight=100; color=Green]
+    B1 -> B4 [weight=0; color=Orange]
+    B3 -> B5 -> B7 -> B9 [color=Green]
+    B4 -> B6 -> B8 [color=Orange]
+
+  }
+
+}
