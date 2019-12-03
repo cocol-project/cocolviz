@@ -1,0 +1,57 @@
+digraph finite_state_machine {
+  rankdir=LR;
+  size="8,5"
+  node [shape = box];
+  B0 [label="Genesis"; color="Green"]
+
+  subgraph cluster_0 {
+    label="Timespan T1\n (mining & \nblock propagation)"
+    // style="dashed"
+    color="Gray"
+    B11 [label="B1.1"]
+    B12 [label="B1.2"]
+    B13 [label="B1.3"]
+  }
+
+  subgraph cluster_1 {
+    label="T2"
+    // style="dashed"
+    color="Gray"
+    B21 [label="B2.1"]
+    B22 [label="B2.2"]
+    B23 [label="B2.3"]
+  }
+
+  subgraph cluster_2 {
+    label="T3"
+    // style="dashed"
+    color="Gray"
+    B31 [label="B3.1"]
+    B32 [label="B3.2"]
+    B33 [label="B3.3"]
+  }
+
+  subgraph cluster_3 {
+    label="T4"
+    // style="dashed"
+    color="Gray"
+    B41 [label="B4.1"]
+    B42 [label="B4.2"]
+    B43 [label="B4.3"]
+  }
+  B0 -> B11
+  B0 -> B12
+  B0 -> B13
+
+  B11 -> B21
+  B12 -> B22
+  B13 -> B23
+
+  B21 -> B31
+  B22 -> B32
+  B23 -> B33
+
+  B31 -> B41
+  B32 -> B42
+  B33 -> B43
+}

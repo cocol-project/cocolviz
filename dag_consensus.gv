@@ -1,0 +1,74 @@
+digraph finality {
+  rankdir=LR;
+  size="8,5"
+  compound=true
+  node [shape = box; fontname = Helvetica];
+  B0 [label="Genesis"; color=Green]
+  B1 [label="B1.1"; color=Green]
+
+  B21 [label="B2.1"; color=Green]
+  B22 [label="B2.2"]
+
+  B31 [label="B3.1"]
+  B32 [label="B3.2"]
+
+  B4 [label="B4.1"]
+  B42 [label="B4.2"; style="dotted"]
+
+  B5 [label="B5.1"]
+
+  B420 [label = "\n "; shape="plain"; size=100]
+
+
+  {
+    node [shape=plaintext; fontsize=16; color=Gray];
+    edge [color=Gray]
+
+    T45 [label="T4.5"]
+    T1 [label="Timespan T1"]
+    /*the time-line graph*/
+    start -> T1 -> T2 -> T3 -> T4 -> T45 -> T5;
+  }
+  subgraph cluster_0 {
+    color=White
+    style="dashed"
+    {rank = same; start; B0}
+    {rank = same; T1; B1}
+    {rank = same; T2; B21; B22}
+    {rank = same; T3; B31; B32}
+    B0
+    start
+    T1
+    B1
+    B21
+    B22
+    T2
+    B31
+    B32
+    T3
+  }
+  subgraph cluster_1 {
+    color=Red
+    rank = same; T4; B4; B420
+    label="block mining & \npropagation"
+    style="dashed"
+    B4
+    // B420
+    T4
+  }
+  {rank = same; T45; B42}
+  {rank = same; T5; B5}
+
+  B0 -> B1 [color = Green]
+
+  B1 -> B21 [color = Green]
+  B1 -> B22
+
+  B21 -> B31
+  B22 -> B32
+  B31 -> B4
+  B32 -> B420 [arrowhead = none; style = dotted]
+  B420 -> B42 [style = dotted]
+
+  B4 -> B5
+}
